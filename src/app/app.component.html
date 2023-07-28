@@ -2,5 +2,9 @@
 <!-- {{ title }}
 {{ numberOne + numberTwo }}
 {{ togglePokemon ? "isPokemon" : "isNotPokemon" }} -->
-<h1 [innerHTML]="title"></h1>
-<img [src]="imgSrc" alt="basket">
+<!-- <h1 [innerHTML]="title"></h1>
+<img [src]="imgSrc" alt="basket"> -->
+
+<h2>Two-way Binding Example</h2>
+<input [(ngModel)]="favoriteAnimal">
+<p> {{ favoriteAnimal }} </p>
