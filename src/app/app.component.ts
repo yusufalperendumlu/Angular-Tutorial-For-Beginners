@@ -7,6 +7,7 @@ interface IUsers {
   age: number;
   type: string;
   isBool: boolean;
+  isStylish: boolean;
 }
 
 @Component({
@@ -49,7 +50,8 @@ export class AppComponent {
       name: "Alperen",
       age: 20,
       type: "Admin",
-      isBool: false
+      isBool: false,
+      isStylish: false,
     },
     {
       id: 2,
@@ -57,6 +59,7 @@ export class AppComponent {
       age: 21,
       type: "User",
       isBool: true,
+      isStylish: true,
     },
     {
       id: 3,
@@ -64,6 +67,7 @@ export class AppComponent {
       age: 26,
       type: "Senior",
       isBool: false,
+      isStylish: true,
     }
   ]
 }

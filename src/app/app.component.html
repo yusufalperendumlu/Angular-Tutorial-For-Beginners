@@ -12,7 +12,7 @@
 <!-- <input type="text" #pokemonName />
 <button (click)="handleClick(pokemonName.value)">Click me</button> -->
 
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>Index</th>
@@ -26,6 +26,27 @@
       <td [ngClass]="{'bool-two': user.isBool}">{{ user.name }}</td>
       <td>{{ user.age }}</td>
       <td>{{ user.type }}</td>
+    </tr>
+  </tbody>
+</table> -->
+
+<table>
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <td [ngClass]="{'cool-bool': user.isBool}"> {{ i }}:{{user.name}} </td>
+    </tr>
+    <tr *ngFor="let user of users; let i = index">
+      <td class="user-td" [style.background]="user.isStylish ? '#000' : ''"> {{ i }}:{{user.name}}
+      </td>
+    </tr>
+    <tr *ngFor="let user of users; let i = index">
+      <td class="user-td" [ngStyle]="{'backgroundColor': (user.isBool ? '#ff0000': '')}"> {{ i }}:{{user.name}} </td>
     </tr>
   </tbody>
 </table>
