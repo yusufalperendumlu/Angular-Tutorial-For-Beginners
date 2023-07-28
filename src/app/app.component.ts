@@ -1,6 +1,14 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+interface IUsers {
+  id: number;
+  name: string;
+  age: number;
+  type: string;
+  isBool: boolean;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -21,20 +29,41 @@ export class AppComponent {
 
   // favoriteAnimal: string = "turtle";
 
-  pokemonName: string = "";
-  isEmpty: any = "";
+  // pokemonName: string = "";
+  // isEmpty: any = "";
 
-  constructor() {
-    console.log("Constructor called");
-  }
+  // constructor() {
+  //   console.log("Constructor called");
+  // }
 
-  handleClick(value: any){
-    if (value.trim() === this.isEmpty) {
-         return console.log("Empty");
+  // handleClick(value: any){
+  //   if (value.trim() === this.isEmpty) {
+  //        return console.log("Empty");
+  //   }
+
+  //   console.log(value.trim());    
+  // }
+
+    users: IUsers[] = [{
+      id: 1,
+      name: "Alperen",
+      age: 20,
+      type: "Admin",
+      isBool: false
+    },
+    {
+      id: 2,
+      name: "Atahan",
+      age: 21,
+      type: "User",
+      isBool: true,
+    },
+    {
+      id: 3,
+      name: "Harun",
+      age: 26,
+      type: "Senior",
+      isBool: false,
     }
-
-    console.log(value.trim());
-
-    
-  }
+  ]
 }

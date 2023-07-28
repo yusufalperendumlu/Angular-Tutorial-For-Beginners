@@ -1,0 +1,14 @@
+.cool-bool {
+  color: #ff0000;
+  display: none;
+}
+
+.cool-bool .bool-one {
+  background-color: #900;
+  color: #fff;
+}
+
+.cool-bool .bool-two {
+  background-color: rgb(255, 230, 0);
+  color: #fff;
+}
