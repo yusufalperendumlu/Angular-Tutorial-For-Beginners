@@ -30,7 +30,7 @@
   </tbody>
 </table> -->
 
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>Index</th>
@@ -55,4 +55,36 @@
         1}}:{{user.age + 5}}</td>
     </tr>
   </tbody>
-</table>
+</table> -->
+
+<input type="text" (value)="userName" (input)="handleChange($event)">
+<p>{{ userName }}</p>
+
+<!-- <h2 *ngIf="!userName">
+  No search result found...
+</h2>
+
+<h2 *ngIf="userName">
+  Search result for {{ userName }}...
+</h2> -->
+
+<ng-container *ngIf="userName.length; then userList; else noUser "></ng-container>
+<!-- non-SemanticTaglar ile de olur -->
+
+
+<ng-template #userList>
+  <h2>
+    All user available
+  </h2>
+  .......
+</ng-template>
+
+<ng-template #noUser>
+  <h2>
+    No user available.
+  </h2>
+</ng-template>
+
+<div *ngFor="let user of users; let i = index">
+  <h2 [ngClass]="{'user-name' : user.isBool}">{{ user.id }}: {{ user.name }}</h2>
+</div>

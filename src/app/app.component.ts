@@ -70,4 +70,16 @@ export class AppComponent {
       isStylish: true,
     }
   ]
+
+  userName: string = "";
+
+  constructor() {
+
+  }
+
+  handleChange(e: any) {
+    this.userName = e.target.value;
+  }
+
+
 }
