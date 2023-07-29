@@ -39,14 +39,20 @@
   </thead>
   <tbody>
     <tr *ngFor="let user of users; let i = index">
-      <td [ngClass]="{'cool-bool': user.isBool}"> {{ i }}:{{user.name}} </td>
+      <td [ngClass]="{'cool-bool': user.isBool}"> {{ i + 1 }}:{{user.name}} </td>
     </tr>
     <tr *ngFor="let user of users; let i = index">
-      <td class="user-td" [style.background]="user.isStylish ? '#000' : ''"> {{ i }}:{{user.name}}
+      <td class="user-td" [style.background]="user.isStylish ? '#000' : '#800088'"> {{ i }}:{{user.name}}
       </td>
     </tr>
     <tr *ngFor="let user of users; let i = index">
-      <td class="user-td" [ngStyle]="{'backgroundColor': (user.isBool ? '#ff0000': '')}"> {{ i }}:{{user.name}} </td>
+      <td class="user-td" [ngStyle]="{'backgroundColor': (user.isStylish ? '#ff0000': '#800088')}"> {{ i
+        }}:{{user.name}}
+      </td>
+    </tr>
+    <tr *ngFor="let user of users; let i = index">
+      <td [ngClass]="{'try-class' : user.isBool}" [ngStyle]="{'color' : user.isStylish ? '#99f' : '#ff0000'}">{{ i +
+        1}}:{{user.age + 5}}</td>
     </tr>
   </tbody>
 </table>
