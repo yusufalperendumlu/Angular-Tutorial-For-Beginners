@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Users } from 'src/app/models/users';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-list',
@@ -7,42 +8,10 @@ import { Users } from 'src/app/models/users';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit{
-  users: Users[] = [{
-    id: 1,
-    name: "Alperen",
-    age: 20,
-    type: "Admin",
-    isBool: false,
-    isStylish: false,
-  },
-  {
-    id: 2,
-    name: "Atahan",
-    age: 21,
-    type: "User",
-    isBool: true,
-    isStylish: true,
-  },
-  {
-    id: 3,
-    name: "Harun",
-    age: 26,
-    type: "Senior",
-    isBool: false,
-    isStylish: true,
-  },
-  {
-    id: 4,
-    name: "Olgun",
-    age: 22,
-    type: "User",
-    isBool: true,
-    isStylish: false,
-  },
-]
 
-  constructor() {
-    
+  users!: Users[];
+  
+  constructor(private userService: UserService) {
   }
 
   handleRemove(event: Users) {
@@ -52,7 +21,7 @@ export class UserListComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    console.log('UserListComponent ngOnInit()');
+     this.users = this.userService.getUsers();
     
   }
 }
