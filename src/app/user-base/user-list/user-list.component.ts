@@ -45,10 +45,15 @@ export class UserListComponent implements OnInit{
     
   }
 
+  handleRemove(event: Users) {
+    this.users = this.users.filter((user: Users) => {
+      return user.id !== event.id;
+    })
+  }
+
   ngOnInit(): void {
     console.log('UserListComponent ngOnInit()');
     
   }
 }
 
-let testExample = 1;

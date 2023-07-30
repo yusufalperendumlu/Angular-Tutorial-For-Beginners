@@ -9,7 +9,7 @@
         </tr>
     </thead>
     <tbody>
-        <app-user-detail *ngFor="let user of users" [detail]="user"></app-user-detail>
+        <app-user-detail *ngFor="let user of users" [detail]="user" (remove)="handleRemove($event)"></app-user-detail>
     </tbody>
 
 </table>

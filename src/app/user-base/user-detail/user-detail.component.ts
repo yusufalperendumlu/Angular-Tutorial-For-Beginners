@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Users } from "src/app/models/users"
 
 @Component({
@@ -10,11 +10,18 @@ export class UserDetailComponent implements OnInit{
   @Input()
   detail!: Users;
 
+  @Output()
+  remove: EventEmitter<any> = new EventEmitter();
+
   constructor() {
     
   }
 
   ngOnInit(): void {
       
+  }
+
+  onRemove(): void {
+    this.remove.emit(this.detail);
   }
 }
