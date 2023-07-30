@@ -12,6 +12,9 @@ export class UserListComponent implements OnInit{
   users!: Users[];
   
   constructor(private userService: UserService) {
+
+    
+    
   }
 
   handleRemove(event: Users) {
@@ -20,8 +23,13 @@ export class UserListComponent implements OnInit{
     })
   }
 
+  
+
   ngOnInit(): void {
-     this.users = this.userService.getUsers();
+     this.userService.getUsers().subscribe((data: Users[]) => {
+      console.log(data);
+      this.users = data;
+     })
     
   }
 }

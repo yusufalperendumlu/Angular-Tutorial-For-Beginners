@@ -1,47 +1,26 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http"
 import { Users } from '../models/users';
+import { Observable } from 'rxjs';
+
+const USER_API = 'http://localhost:3000/user'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-constructor() { }
+constructor(private http: HttpClient) { }
 
-getUsers() : Users[] {
-  return  [{
-    id: 1,
-    name: "Alperen",
-    age: 20,
-    type: "Admin",
-    isBool: false,
-    isStylish: false,
-  },
-  {
-    id: 2,
-    name: "Atahan",
-    age: 21,
-    type: "User",
-    isBool: true,
-    isStylish: true,
-  },
-  {
-    id: 3,
-    name: "Harun",
-    age: 26,
-    type: "Senior",
-    isBool: false,
-    isStylish: true,
-  },
-  {
-    id: 4,
-    name: "Olgun",
-    age: 22,
-    type: "User",
-    isBool: true,
-    isStylish: false,
-  },
-]
+getUsers() : Observable<Users[]> {
+  console.log(
+    this.http.get<Users[]>(USER_API)
+  );
+  
+  return this.http.get<Users[]>(USER_API);
 }
+
+
+
 
 }
