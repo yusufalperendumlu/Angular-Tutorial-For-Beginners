@@ -58,7 +58,7 @@
   </tbody>
 </table> -->
 
-<input type="text" (value)="userName" (input)="handleChange($event)">
+<!-- <input type="text" (value)="userName" (input)="handleChange($event)">
 <p>{{ userName }}</p>
 
 <!-- <h2 *ngIf="!userName">
@@ -67,10 +67,10 @@
 
 <h2 *ngIf="userName">
   Search result for {{ userName }}...
-</h2> -->
+</h2> 
 
 <ng-container *ngIf="userName.length; then userList; else noUser "></ng-container>
-<!-- non-SemanticTaglar ile de olur -->
+ non-SemanticTaglar ile de olur 
 
 
 <ng-template #userList>
@@ -88,4 +88,4 @@
 
 <div *ngFor="let user of users; let i = index">
   <h2 [ngClass]="{'user-name' : user.isBool}">{{ user.id }}: {{ user.name }}</h2>
-</div>
+</div> -->

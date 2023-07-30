@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Users } from 'src/app/models/users';
 
 @Component({
   selector: 'app-user-list',
@@ -6,15 +7,47 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit{
-  user: string;
+  users: Users[] = [{
+    id: 1,
+    name: "Alperen",
+    age: 20,
+    type: "Admin",
+    isBool: false,
+    isStylish: false,
+  },
+  {
+    id: 2,
+    name: "Atahan",
+    age: 21,
+    type: "User",
+    isBool: true,
+    isStylish: true,
+  },
+  {
+    id: 3,
+    name: "Harun",
+    age: 26,
+    type: "Senior",
+    isBool: false,
+    isStylish: true,
+  },
+  {
+    id: 4,
+    name: "Olgun",
+    age: 22,
+    type: "User",
+    isBool: true,
+    isStylish: false,
+  },
+]
 
   constructor() {
-    this.user = "";
+    
   }
 
   ngOnInit(): void {
     console.log('UserListComponent ngOnInit()');
-    this.user = "";
+    
   }
 }
 

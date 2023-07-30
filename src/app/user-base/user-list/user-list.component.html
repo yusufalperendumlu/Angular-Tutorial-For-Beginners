@@ -1,1 +1,15 @@
-<p>user-list works!</p>
+<table>
+    <thead>
+        <tr class="head-tr">
+            <th>id</th>
+            <th>name</th>
+            <th>age</th>
+            <th>type</th>
+            <th>isBool</th>
+        </tr>
+    </thead>
+    <tbody>
+        <app-user-detail *ngFor="let user of users" [detail]="user"></app-user-detail>
+    </tbody>
+
+</table>
