@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Users, UsersType } from 'src/app/models/users';
 import { UserService } from 'src/app/services/user.service';
 
@@ -19,7 +20,7 @@ export class UserTemplateFormComponent implements OnInit {
     value: 'User'
   }
 ]
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) { }
 
   toggleIsBool(object: any) {
     console.log(object);
@@ -31,10 +32,17 @@ export class UserTemplateFormComponent implements OnInit {
   
 
   ngOnInit() {
-    this.userService.getUsers().subscribe((data: Users[]) => {
-      console.log(data);
-      this.user = data[1];
-     })
+    this.user = {} as Users;
+    this.route.params.subscribe((data: Params) => {
+      this.userService.getUsers().subscribe((data: Users[]) => {
+        console.log(data);
+        this.user = data[0];
+       })
+    })
+  }
+
+  back() : void {
+    this.router.navigate(['/user']);
   }
 
 }

@@ -17,12 +17,13 @@
   </label>
   <label>
     User Type:
-    <select name="userType" [ngModel]="user?.id">
+    <select name="userType" [ngModel]="user.id">
       <option *ngFor="let type of userType" [value]="type.key" [selected]="type.value === user.type">{{ type.value }}
       </option>
     </select>
   </label>
   <button type="submit" [disabled]="!form.valid">Save</button>
+  <button type="button" (click)="back()">Back</button>
 </form>
 
 <div>

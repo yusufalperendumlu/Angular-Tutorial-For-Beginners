@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-interface IUsers {
-  id: number;
-  name: string;
-  age: number;
-  type: string;
-  isBool: boolean;
-  isStylish: boolean;
+interface Nav {
+  link: string,
+  name: string,
+  exact: boolean
 }
 
 @Component({
@@ -16,6 +13,19 @@ interface IUsers {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  nav: Nav[] = [
+    {
+      link: '/',
+      name: 'Home',
+      exact: true
+    },
+    {
+      link: '/badroute',
+      name: 'Bad route',
+      exact: true
+    }
+  ]
+
   // title: string;
   // numberOne: number = 1;
   // numberTwo: number = 2;

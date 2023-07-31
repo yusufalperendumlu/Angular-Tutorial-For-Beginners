@@ -7,17 +7,20 @@ import { AppComponent } from './app.component';
 import { UserListComponent } from './user-base/user-list/user-list.component';
 import { UserBaseModule } from './user-base/user-base.module';
 import { UserTemplateFormComponent } from './user-base/user-template-form/user-template-form.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserTemplateFormComponent
+    HomeComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    UserBaseModule
+    AppRoutingModule,
+    UserBaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

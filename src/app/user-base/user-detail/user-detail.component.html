@@ -5,5 +5,7 @@
     <td>{{detail.type}}</td>
     <td>{{detail.isBool}}</td>
 
+    <button [routerLink]="['/user', detail.id]">Back</button>
+
     <button (click)="onRemove()">Remove User</button>
 </tr>
