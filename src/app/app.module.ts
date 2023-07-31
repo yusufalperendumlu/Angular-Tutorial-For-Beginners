@@ -6,10 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './user-base/user-list/user-list.component';
 import { UserBaseModule } from './user-base/user-base.module';
+import { UserTemplateFormComponent } from './user-base/user-template-form/user-template-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserTemplateFormComponent
   ],
   imports: [
     BrowserModule,
