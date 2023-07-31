@@ -3,7 +3,8 @@
   <input type="text" [(ngModel)]="user.name" name="name">
 
   <label>
-    <input type="radio" name="isBool" [value]="true" [ngModel]="user.isBool" (ngModelChange)="toggleIsBool($event)" />
+    <input type="radio" name="isBool" [value]="true" #userName="ngModel" [ngModel]="user.isBool"
+      (ngModelChange)="toggleIsBool($event)" />
     User is cool?
   </label>
   <label>
@@ -16,6 +17,12 @@
   </label>
 </form>
 
-MODEL: {{ user | json }}
-<br />
-FORM: {{ form.value | json }}
+<div>
+  MODEL: {{ user | json }}
+  <br />
+  FORM: {{ form.value | json }}
+  <br />
+  ERROR: <div *ngIf="!userName.pristine">NOT PRISTINE ANYMORE IT IS DIRTY!</div>
+  <div *ngIf="!userName.touched">NOT PRISTINE ANYMORE IT IS DIRTY!</div>
+  <div *ngIf="!userName.invalid">NOT PRISTINE ANYMORE IT IS DIRTY!</div>
+</div>
