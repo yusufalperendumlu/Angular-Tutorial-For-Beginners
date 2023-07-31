@@ -9,6 +9,8 @@ import { UserTemplateFormComponent } from './user-template-form/user-template-fo
 
 import { UserService } from '../services/user.service';
 import { FormsModule } from '@angular/forms';
+import { HighlighttextDirective } from '../_directives/highlighttext.directive';
+import { CustomifDirective } from '../_directives/customif.directive';
 
 const routes: Routes = [
   {
@@ -24,7 +26,9 @@ const routes: Routes = [
   declarations: [
     UserListComponent,
     UserDetailComponent,
-    UserTemplateFormComponent
+    UserTemplateFormComponent,
+    HighlighttextDirective,
+    CustomifDirective
   ],
   imports: [
     CommonModule,
@@ -35,10 +39,13 @@ const routes: Routes = [
   exports: [
     UserListComponent,
     UserDetailComponent,
-    
   ],
   providers: [
     UserService
+  ],
+  bootstrap: [
+    HighlighttextDirective,
+    CustomifDirective
   ]
 })
 export class UserBaseModule { }
