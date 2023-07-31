@@ -34,11 +34,10 @@ export class UserTemplateFormComponent implements OnInit {
   ngOnInit() {
     this.user = {} as Users;
     this.route.params.subscribe((data: Params) => {
-      this.userService.getUsers().subscribe((data: Users[]) => {
-        console.log(data);
-        this.user = data[0];
-       })
-    })
+      return this.userService.getUser(data['id']).subscribe((data: Users) => {
+        this.user = data;
+    });
+  })
   }
 
   back() : void {

@@ -15,11 +15,11 @@ constructor(private http: HttpClient) {
   
 }
 
-getUser(id: number) {
-  return this.http.get(`${USER_API}/1`);
+getUser(id: string) : Observable<Users> {
+  return this.http.get<Users>(`${USER_API}/${id}`);
 }
 
-getUsers() : Observable<Users[]> {
+getUsers(): Observable<Users[]> {
   return this.http.get<Users[]>(USER_API);
 }
 
