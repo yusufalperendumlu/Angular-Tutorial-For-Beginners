@@ -10,6 +10,10 @@
     <input type="radio" name="isBool" [value]="false" [ngModel]="user.isBool" (ngModelChange)="toggleIsBool($event)" />
     User is NOT cool?
   </label>
+  <label>
+    <input type="checkbox" name="acceptTerms" [(ngModel)]="user.acceptTerms" />
+    Please check to accept terms?
+  </label>
 </form>
 
 MODEL: {{ user | json }}
