@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked, ViewChildren, ContentChildren } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { Users } from 'src/app/models/users';
 import { UserService } from 'src/app/services/user.service';
@@ -13,16 +13,19 @@ export class UserListComponent implements OnInit, AfterViewChecked{
 
   users!: Users[];
 
-  @ViewChild('userRef') userRef!: ElementRef;
+  @ViewChildren('userRef') userRef!: ElementRef;
+  @ViewChild('userTh') userTh!: ElementRef;
+  @ContentChildren(UserDetailComponent) contentList!: any;
   
   constructor(private userService: UserService) {
 
-    console.log(this.userRef);
+    
     
   }
 
   ngAfterViewChecked(): void {
     console.log(this.userRef);
+    this.userRef.nativeElement.innerText = "Name:"
       
   }
 
@@ -35,11 +38,10 @@ export class UserListComponent implements OnInit, AfterViewChecked{
   
 
   ngOnInit(): void {
-     this.userService.getUsers().subscribe((data: Users[]) => {
+    this.userService.getUsers().subscribe((data: Users[]) => {
       console.log(data);
-      this.users = data;
-     })
-    
+      this.users = data; 
+    });
   }
 }
 

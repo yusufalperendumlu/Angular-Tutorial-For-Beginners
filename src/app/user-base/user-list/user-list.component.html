@@ -2,7 +2,7 @@
     <thead>
         <tr class="head-tr">
             <th>id</th>
-            <th>name</th>
+            <th #userTh>name</th>
             <th>age</th>
             <th>type</th>
             <th>isBool</th>
@@ -10,7 +10,7 @@
     </thead>
     <tbody>
         <app-user-detail #userRef *ngFor="let user of users" [detail]="user" (remove)="handleRemove($event)">
-            <h1>{{ user.name }}</h1>
+            <h1 #contentRef>{{ user.name }}</h1>
         </app-user-detail>
     </tbody>
 
