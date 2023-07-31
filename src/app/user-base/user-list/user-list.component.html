@@ -9,8 +9,8 @@
         </tr>
     </thead>
     <tbody>
-        <app-user-detail *ngFor="let user of users" [detail]="user" (remove)="handleRemove($event)">
-            <h1>-------------------------</h1>
+        <app-user-detail #userRef *ngFor="let user of users" [detail]="user" (remove)="handleRemove($event)">
+            <h1>{{ user.name }}</h1>
         </app-user-detail>
     </tbody>
 

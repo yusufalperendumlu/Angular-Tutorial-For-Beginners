@@ -1,20 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 import { Users } from 'src/app/models/users';
 import { UserService } from 'src/app/services/user.service';
+import { UserDetailComponent } from '../user-detail/user-detail.component';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })
-export class UserListComponent implements OnInit{
+export class UserListComponent implements OnInit, AfterViewChecked{
 
   users!: Users[];
+
+  @ViewChild('userRef') userRef!: ElementRef;
   
   constructor(private userService: UserService) {
 
+    console.log(this.userRef);
     
-    
+  }
+
+  ngAfterViewChecked(): void {
+    console.log(this.userRef);
+      
   }
 
   handleRemove(event: Users) {
