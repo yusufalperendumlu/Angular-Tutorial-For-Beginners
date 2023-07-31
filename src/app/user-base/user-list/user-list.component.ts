@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked, ViewChildren, ContentChildren } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked, ViewChildren, ContentChildren, Renderer2 } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { Users } from 'src/app/models/users';
 import { UserService } from 'src/app/services/user.service';
@@ -17,7 +17,7 @@ export class UserListComponent implements OnInit, AfterViewChecked{
   @ViewChild('userTh') userTh!: ElementRef;
   @ContentChildren(UserDetailComponent) contentList!: any;
   
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private renderer: Renderer2) {
 
     
     
@@ -25,8 +25,12 @@ export class UserListComponent implements OnInit, AfterViewChecked{
 
   ngAfterViewChecked(): void {
     console.log(this.userRef);
-    this.userRef.nativeElement.innerText = "Name:"
+    this.userTh.nativeElement.innerText = "Name:"
+    const div = this.renderer.createElement('div');
+    const text = this.renderer.createText('Hello world!');
       
+    this.renderer.appendChild(div, text);
+    this.renderer.appendChild(this.userTh.nativeElement, div);
   }
 
   handleRemove(event: Users) {
