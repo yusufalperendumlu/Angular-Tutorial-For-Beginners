@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Users } from 'src/app/models/users';
+import { Users, UsersType } from 'src/app/models/users';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,6 +10,15 @@ import { UserService } from 'src/app/services/user.service';
 export class UserTemplateFormComponent implements OnInit {
 
   user!: Users;
+  userType: UsersType[] =[{
+    key: 0,
+    value: 'Admin'
+  },
+  {
+    key: 1,
+    value: 'User'
+  }
+]
   constructor(private userService: UserService) { }
 
   toggleIsBool(object: any) {

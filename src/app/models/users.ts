@@ -7,3 +7,8 @@ export interface Users {
     isStylish: boolean,
     acceptTerms: boolean,
 }
+
+export interface UsersType {
+    key: number,
+    value: string,
+}
