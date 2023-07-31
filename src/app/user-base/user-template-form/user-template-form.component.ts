@@ -24,6 +24,10 @@ export class UserTemplateFormComponent implements OnInit {
   toggleIsBool(object: any) {
     console.log(object);
   }
+
+  handleSubmit(object: any) {
+    console.log(object);
+  }
   
 
   ngOnInit() {
