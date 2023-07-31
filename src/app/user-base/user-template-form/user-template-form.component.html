@@ -1,6 +1,15 @@
 <form #form="ngForm">
   User Name:
   <input type="text" [(ngModel)]="user.name" name="name">
+
+  <label>
+    <input type="radio" name="isBool" [value]="true" [ngModel]="user.isBool" (ngModelChange)="toggleIsBool($event)" />
+    User is cool?
+  </label>
+  <label>
+    <input type="radio" name="isBool" [value]="false" [ngModel]="user.isBool" (ngModelChange)="toggleIsBool($event)" />
+    User is NOT cool?
+  </label>
 </form>
 
 MODEL: {{ user | json }}

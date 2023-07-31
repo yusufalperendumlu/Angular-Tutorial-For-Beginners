@@ -12,12 +12,15 @@ export class UserTemplateFormComponent implements OnInit {
   user!: Users;
   constructor(private userService: UserService) { }
 
+  toggleIsBool(object: any) {
+    console.log(object);
+  }
   
 
   ngOnInit() {
     this.userService.getUsers().subscribe((data: Users[]) => {
       console.log(data);
-      this.user = data[0];
+      this.user = data[1];
      })
   }
 
